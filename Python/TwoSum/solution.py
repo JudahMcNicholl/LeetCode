@@ -11,6 +11,15 @@ class Solution:
 						return [i, j]
 				j += 1
 			i += 1
+
+	def twoSumOptimal(self, nums, target):
+		compliments = {}
+		for i, num in enumerate(nums):
+			compliment = target - num
+			if compliment in compliments:
+				return [compliments[compliment], i]
+			compliments[num] = i
+
 if __name__ == '__main__':
 	solution = Solution()
-	print(solution.twoSum([-1,-2,-3,-4,-5], -8))
+	print(solution.twoSumOptimal([3,2,4], 6))
